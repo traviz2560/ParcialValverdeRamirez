@@ -8,9 +8,3 @@ def productos(request):
 
 def tiendas(request):
     return render(request, 'tiendas.html')
-
-def agregarProductosyTiendas(request):
-    return render(request, 'agregar.html')
-
-def detalleTiendas(request):
-    return render(request, 'detalles.html')
