@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Tienda, Producto
+from django.template import loader
 
 # Create your views here.
-def productos(request):
-    return render(request, 'productos.html')
-
 def tiendas(request):
-    return render(request, 'tiendas.html')
+    template = loader.get_template('tiendas.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def productos(request):
+    template = loader.get_template('productos.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
