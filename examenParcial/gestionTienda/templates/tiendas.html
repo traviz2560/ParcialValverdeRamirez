@@ -1,10 +1,49 @@
 {% extends "master.html" %}
+{% load static %}
 
 {% block title %}
   Tiendas
 {% endblock %}
 
+{% block header %}
+  Tiendas
+{% endblock %}
+
+{% block buttons %}
+  <div class="col-2">
+    <button hx-get="{% url 'gestionTienda:agregarTienda' %}" hx-target="#editar" class="btn btn-success w-100" >Crear <i class="fa-solid fa-plus"></i></button>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar Todo <i class="fa-solid fa-trash"></i></button>
+  </div>
+{% endblock %}
 
 {% block content %}
-  <h1>Tiendas</h1>
+  <div class="col-10">
+    <table class="table">
+      <thead class="table-dark">
+        <th>ID</th>
+        <th>Direccion</th>
+        <th>Provincia</th>
+        <th>Region</th>
+        <th>Fecha de creacion</th>
+        <th>Telefono</th>
+        <th>Editar</th>
+        <th>Detalles</th>
+      </thead>
+      <tbody hx-trigger="load, listaTiendaCambio from:body" hx-get="{% url 'gestionTienda:listaTienda' %}" hx-target="this"> 
+      </tbody>
+    </table>
+  </div>
+
+ 
+{% endblock %}
+
+{% block modal %}
+  <div id="modal" class="modal fade">
+    <div id="editar" class="modal-dialog" hx-target="this"></div>
+  </div>
+
+  <script src="https://unpkg.com/htmx.org@1.6.1/dist/htmx.min.js"></script>
+  <script src="{% static 'modalEdit.js' %}"></script>
 {% endblock %}

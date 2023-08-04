@@ -4,7 +4,22 @@
   Productos
 {% endblock %}
 
+{% block header %}
+  Productos
+{% endblock %}
+
+{% block buttons %}
+  <div class="col-2">
+    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#crear">Crear <i class="fa-solid fa-plus"></i></button>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#agregar">Agregar a Tienda <i class="fa-solid fa-paperclip"></i></button>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar Todo <i class="fa-solid fa-trash"></i></button>
+  </div>
+{% endblock %}
 
 {% block content %}
-  <h1>Productos</h1>
+
 {% endblock %}

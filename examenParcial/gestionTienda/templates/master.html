@@ -10,18 +10,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm navbar navbar-dark justify-content-between p-2" style="background-color: #24252a;">
-      <i class="fa-brands fa-shopify fa-2xl" style="color: #ffffff;"></i>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="{% url 'gestionTienda:tiendas' %}">Tiendas <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="{% url 'gestionTienda:productos' %}">Productos</a>
+    <nav class="navbar navbar-expand-sm navbar navbar-dark justify-content-between px-3 py-3" style="background-color: #24252a;">
+      <div class="container pl-0">
+        <i class="fa-brands fa-shopify fa-2xl mx-1" style="color: #ffffff;"></i>
+        <div class="collapse navbar-collapse">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active mx-2" href="{% url 'gestionTienda:tiendas' %}">Tiendas <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active mx-2" href="{% url 'gestionTienda:productos' %}">Productos</a>
+          </div>
         </div>
       </div>
     </nav>
-    <div>
-      {% block content %}
-      {% endblock %}
+    <div class="p-3">
+      <div class="container mt-5">
+        <h1>
+          {% block header %}
+          {% endblock %}
+        </h1>
+      </div>
+      <div class="container mt-5">
+        <div class="row">
+          {% block buttons %}
+          {% endblock %}
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
     </div>
+    {% block modal %}
+    {% endblock %}
   </body>
 </html>

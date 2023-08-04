@@ -1,0 +1,16 @@
+{% for tienda in tiendas %}
+<tr id="tienda-{{ tienda.pk }}">
+  <td>{{ tienda.id }}</td>
+  <td>{{ tienda.direccion }}</td>
+  <td>{{ tienda.provincia }}</td>
+  <td>{{ tienda.region }}</td>
+  <td>{{ tienda.fechaCreacion }}</td>
+  <td>{{ tienda.telefono }}</td>
+  <td>
+    a
+  </td>
+  <td>
+    b
+  </td>
+</tr>
+{% endfor %}
