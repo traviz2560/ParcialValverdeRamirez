@@ -7,6 +7,9 @@ class Tienda(models.Model):
   fechaCreacion = models.CharField(max_length=32, blank=True, null=True)
   telefono = models.CharField(max_length=32, blank=True, null=True, unique=True)
 
+  def __str__(self):
+    return self.direccion
+
 class Producto(models.Model):
   descripcion = models.CharField(max_length=32, blank=True, null=True)
   codigo = models.CharField(max_length=32, blank=True, null=True, unique=True)

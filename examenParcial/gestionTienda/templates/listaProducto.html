@@ -1,0 +1,15 @@
+{% for producto in productos %}
+<tr id="producto-{{ producto.pk }}">
+  <td>{{ producto.id }}</td>
+  <td>{{ producto.descripcion }}</td>
+  <td>{{ producto.codigo }}</td>
+  <td>{{ producto.precioVenta }}</td>
+  <td>{{ producto.cantidad }}</td>
+  <td>{{ producto.tiendaRelacionada }}</td>
+  <td>
+    <button class="btn btn-primary btn-sm" hx-get="{% url 'gestionTienda:editarProducto' pk=producto.pk %}" hx-target="#editar">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+  </td>
+</tr>
+{% endfor %}

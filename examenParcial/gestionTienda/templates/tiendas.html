@@ -14,7 +14,7 @@
     <button hx-get="{% url 'gestionTienda:agregarTienda' %}" hx-target="#editar" class="btn btn-success w-100" >Crear <i class="fa-solid fa-plus"></i></button>
   </div>
   <div class="col-2">
-    <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar Todo <i class="fa-solid fa-trash"></i></button>
+    <button hx-get="{% url 'gestionTienda:eliminarTiendas' %}" hx-target="#borrar" class="btn btn-danger w-100">Eliminar Todo <i class="fa-solid fa-trash"></i></button>
   </div>
 {% endblock %}
 
@@ -35,13 +35,15 @@
       </tbody>
     </table>
   </div>
-
- 
 {% endblock %}
 
 {% block modal %}
   <div id="modal" class="modal fade">
     <div id="editar" class="modal-dialog" hx-target="this"></div>
+  </div>
+
+  <div id="modalDelete" class="modal fade">
+    <div id="borrar" class="modal-dialog" hx-target="this"></div>
   </div>
 
   <script src="https://unpkg.com/htmx.org@1.6.1/dist/htmx.min.js"></script>

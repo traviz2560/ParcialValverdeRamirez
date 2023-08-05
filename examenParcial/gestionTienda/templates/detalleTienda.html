@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-  Productos
+  Tienda {{ tienda.direccion }}
 {% endblock %}
 
 {% block header %}
-  Productos
+  Tienda {{ tienda.direccion }}
 {% endblock %}
 
 {% block buttons %}
@@ -30,7 +30,7 @@
         <th>Tienda</th>
         <th>Editar</th>
       </thead>
-      <tbody hx-trigger="load, listaProductoCambio from:body" hx-get="{% url 'gestionTienda:listaProducto' %}" hx-target="this"> 
+      <tbody hx-trigger="load, listaProductoCambio from:body" hx-get="{% url 'gestionTienda:listaTiendaFiltro' pk=tienda.pk  %}" hx-target="this"> 
       </tbody>
     </table>
   </div>
